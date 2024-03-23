@@ -1,0 +1,71 @@
+.navbar2 ul{
+  list-style-type: none;
+  padding:0px;
+  margin: 0px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.navbar2 a{
+  color: black;
+  text-decoration: none;
+  padding:20px;
+  display: inline-block;
+  text-align: center;
+  position: relative;
+}
+
+.navbar2 a:hover{
+  background-color: rgb(5, 180, 234);
+  color:white;
+  border-radius: 5px;
+}
+
+.navbar2 li{
+  float: left;
+}
+
+.retino-img{
+  height:100px;
+  width:100%;
+}
+
+.toggle-button{
+  position: absolute;
+  top: .75rem;
+  right: 1 rem;
+  display: none;
+  flex-direction: column;
+  justify-content:space-between;
+  width:30px;
+  height:21px;
+}
+
+.toggle-button .bar{
+  height:3px;
+  width:100%;
+  background-color: white;
+  border-radius: 10px;
+}
+
+@media screen  and (max-width:800px) {
+     .toggle-button{
+      display: flex;
+     }
+
+     .navbar2 {
+        flex-direction: column;
+        align-items: center;
+     }
+     
+     .navbar-links ul{
+      width:100%;
+      flex-direction: column;
+     }
+
+     .navbar-links li{
+      text-align: center;
+    }
+}

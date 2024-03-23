@@ -1,0 +1,39 @@
+.nav-container{
+  background-color: rgb(5, 180, 234);;
+}
+
+.navbar{
+  background-color: rgb(5, 180, 234);;
+  padding:10px;
+  color:#ffffff;
+  font-weight: 550;
+  display:flex;
+  justify-content: space-between;
+}
+
+.lang{
+  background-color: #ffffff;
+  height:50px;
+  width:50px;
+  margin-right: 10px;
+  border-radius: 3px;
+}
+
+.textCont{
+margin-right: 20px;
+color:#ffffff;
+display: flex;
+  flex-direction: row;
+}
+
+.text{
+  margin-left:20px;
+}
+
+.img{
+  width:100%;
+}
+
+.text-english{
+  margin:10px;
+}
