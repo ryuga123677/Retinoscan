@@ -52,17 +52,273 @@ import DMEOCT from "./assets/images/final-oct-samples/DME.jpeg";
 import { useState } from "react";
 
 const Content = () => {
+
   const glaucomaPercent = 75.8;
   const drPercent = 100;
   const nodrPercent = 99.3;
   const [image, setimage] = useState(glaucoma);
   const [image2, setimage2] = useState(glaucom);
 
-  const handleImageChange = (image, image2) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handleImageChange = (image, image2,index) => {
     setimage(image);
     setimage2(image2);
+    setCurrentIndex(index);
+  
+    
   };
+let diseaseData = [
+    
+        {"Disease Report": [
+            { name: "Glaucoma", percent: 75.8 },
+        ],
+        "DR Report": [
+            { name: "dr_0", percent: 100 },
+        ],
+        "Additional Report": [
+            { name: "no_dr", percent: 99.3 },
+        ],
+      },
 
+    
+       { "Disease Report": [
+            { name: "ARMD", percent: 73.7 },
+        ],
+        "DR Report": [
+            { name: "dr_0", percent: 100 },
+        ],
+        "Additional Report": [
+            { name: "no_dr", percent: 99.3 },
+        ],
+      },
+    
+
+     {
+        "Disease Report": [
+            { name: "BRVO", percent: 40.3 },
+        ],
+        "DR Report": [
+            { name: "dr_2", percent: 100 },
+        ],
+        "Additional Report": [
+            { name: "Hard Exudates", percent: 78.9 },
+            { name: "DME", percent: 53.7 },
+            { name: "HM", percent: 25.4 },
+        ],
+    },
+
+    {
+        "Disease Report": [
+            { name: "No Disease", percent: 87.6 },
+        ],
+        "DR Report": [
+            { name: "dr_1", percent: 100 },
+        ],
+        "Additional Report": [
+            { name: "Micraneurysms", percent: 21.2 },
+        ],
+    },
+
+    {
+        "Disease Report": [
+            { name: "Drusen", percent: 64.9 },
+            { name: "Chorioretinitis", percent: 38.2 },
+        ],
+        "DR Report": [
+            { name: "dr_2", percent: 100 },
+        ],
+        "Additional Report": [
+            { name: "Micraneurysms", percent: 59.7 },
+            { name: "Hard Exudates", percent: 80.4 },
+            { name: "DME", percent: 46.4 },
+            { name: "HM", percent: 29 },
+        ],
+    },
+
+    {
+        "DR Report": [
+            { name: "dr_3", percent: 100 },
+        ],
+        "Additional Report": [
+            { name: "Micraneurysms", percent: 75.6 },
+            { name: "Hard Exudates", percent: 50 },
+            { name: "Cotton Wool Spot", percent: 38.2 },
+            { name: "DME", percent: 37.7 },
+            { name: "HM", percent: 69.3 },
+
+        ],
+    },
+
+  {
+        "Disease Report": [
+            { name: "Hypertensive DR", percent: 40.9 },
+        ],
+        "DR Report": [
+            { name: "dr_4", percent: 100 },
+        ],
+        "Additional Report": [
+            { name: "Hard Exudates", percent: 92.7 },
+            { name: "DME", percent: 86.1 },
+            { name: "FPD", percent: 41.7 },
+            { name: "NVD", percent: 85 },
+            { name: "NVE", percent: 77.3 },
+            { name: "HM", percent: 60 },
+        ],
+    },
+
+     {
+        "Disease Report": [
+            { name: "Drusen", percent: 59.3 },
+        ],
+        "DR Report": [
+            { name: "dr_0", percent: 100 },
+        ],
+        "Additional Report": [
+            { name: "no_dr", percent: 93.8 },
+        ],
+    },
+
+    {
+        "Disease Report": [
+            { name: "ERM", percent: 68.7 },
+            { name: "Myopic Degeneration", percent: 56.7 },
+        ],
+        "DR Report": [
+            { name: "dr_4", percent: 100 },
+        ],
+        "Additional Report": [
+            { name: "Laser", percent: 80.8 },
+            { name: "Hard Exudates", percent: 82.1 },
+            { name: "DME", percent: 59.1 },
+            { name: "Micraneurysms", percent: 38.8 },
+            { name: "HM", percent: 35.3 },
+        ],
+    },
+
+    {
+        "Disease Report": [
+            { name: "Peripapilary Atrophy", percent: 92.5 },
+        ],
+        "DR Report": [
+            { name: "dr_0", percent: 100 },
+        ],
+        "Additional Report": [
+            { name: "no_dr", percent: 99.8 },
+        ],
+    },
+
+     {
+        "Disease Report": [
+            { name: "Drusen", percent: 51.4 },
+        ],
+        "DR Report": [
+            { name: "dr_4", percent: 100 },
+        ],
+        "Additional Report": [
+            { name: "NVD", percent: 88.4 },
+            { name: "Micraneurysms", percent: 70.7 },
+            { name: "Hard Exudates", percent: 97.4 },
+            { name: "Cotton Wool Spot", percent: 71.6 },
+            { name: "DME", percent: 97.9 },
+            { name: "NVE", percent: 90.2 },
+            { name: "HM", percent: 58 },
+            { name: "Viterous HM", percent: 40.3 },
+        ],
+    },
+
+     {
+        "DR Report": [
+            { name: "dr_4", percent: 100 },
+        ],
+        "Additional Report": [
+            { name: "NVE", percent: 96 },
+            { name: "Hard Exudates", percent: 98.6 },
+            { name: "DME", percent: 96.9 },
+            { name: "FPE", percent: 86.4 },
+            { name: "NVD", percent: 97.4 },
+            { name: "Viterous HM", percent: 88.5 },
+            { name: "HM", percent: 45.3 },
+        ],
+    },
+
+    {
+        "Disease Report": [
+            { name: "Myopic Degeneration", percent: 94.9 },
+        ],
+        "DR Report": [
+            { name: "dr_0", percent: 100 },
+        ],
+        "Additional Report": [
+            { name: "no_dr", percent: 98.5 },
+        ],
+    },
+
+     {
+        "DR Report": [
+            { name: "dr_3", percent: 100 },
+        ],
+        "Additional Report": [
+            { name: "Hard Exudates", percent: 93.9 },,
+            { name: "Cotton Wool Spot", percent: 96.1 },
+            { name: "DME", percent: 97.2 },
+            { name: "High HM", percent: 70.2 },
+            { name: "Micraneurysms", percent: 29.2 },
+        ],
+    },
+
+     {
+        "Disease Report": [
+            { name: "Tortuous vessels", percent: 71.7 },
+        ],
+        "DR Report": [
+            { name: "dr_0", percent: 100 },
+        ],
+        "Additional Report": [
+            { name: "no_dr", percent: 100 },
+        ],
+    },
+     {
+        "Disease Report": [
+            { name: "Normal", percent: 93.2 },
+        ],
+    },
+    {
+        "Disease Report": [
+            { name: "Drusen", percent: 92.6 },
+        ],
+    },
+     {
+        "Disease Report": [
+            { name: "DME", percent: 93.1 },
+        ],
+    },
+  {
+        "Disease Report": [
+            { name: "CNV", percent: 71.2 },
+        ],
+    },
+    {
+        "Disease Report": [
+            { name: "AMD", percent: 93.7 },
+        ],
+    },
+     {
+        "Disease Report": [
+            { name: "CSR", percent: 91.6 },
+        ],
+    },
+    {
+        "Disease Report": [
+            { name: "DR", percent: 84.5 },
+        ],
+    },
+     {
+        "Disease Report": [
+            { name: "MH", percent: 88.2 },
+        ],
+    },
+  ];
   return (
     <>
       <div className="container">
@@ -72,91 +328,91 @@ const Content = () => {
             <div className="button-container">
               <button
                 className="button-item"
-                onClick={() => handleImageChange(glaucoma, glaucom)}
+                onClick={() => handleImageChange(glaucoma, glaucom,0)}
               >
                 Glaucoma
               </button>
               <button
                 className="button-item"
-                onClick={() => handleImageChange(ARMD2, ARMD)}
+                onClick={() => handleImageChange(ARMD2, ARMD,1)}
               >
                 ARMD
               </button>
               <button
                 className="button-item"
-                onClick={() => handleImageChange(DME2, DME)}
+                onClick={() => handleImageChange(DME2, DME,2)}
               >
                 DME
               </button>
               <button
                 className="button-item"
-                onClick={() => handleImageChange(DR11, DR1)}
+                onClick={() => handleImageChange(DR11, DR1,3)}
               >
                 DR1
               </button>
               <button
                 className="button-item"
-                onClick={() => handleImageChange(DR22, DR2)}
+                onClick={() => handleImageChange(DR22, DR2,4)}
               >
                 DR2
               </button>
               <button
                 className="button-item"
-                onClick={() => handleImageChange(DR33, DR3)}
+                onClick={() => handleImageChange(DR33, DR3,5)}
               >
                 DR3
               </button>
               <button
                 className="button-item"
-                onClick={() => handleImageChange(DR44, DR4)}
+                onClick={() => handleImageChange(DR44, DR4,6)}
               >
                 DR4
               </button>
               <button
                 className="button-item"
-                onClick={() => handleImageChange(Laser2, Laser)}
+                onClick={() => handleImageChange(Laser2, Laser,8)}
               >
                 Laser
               </button>
               <button
                 className="button-item"
-                onClick={() => handleImageChange(Drusen2, Drusen)}
+                onClick={() => handleImageChange(Drusen2, Drusen,7)}
               >
                 Drusen
               </button>
               <button
                 className="button-item"
-                onClick={() => handleImageChange(Soft2, SoftEx)}
+                onClick={() => handleImageChange(Soft2, SoftEx,13)}
               >
                 Hard Exudates
               </button>
               <button
                 className="button-item"
-                onClick={() => handleImageChange(NVD2, NVD)}
+                onClick={() => handleImageChange(NVD2, NVD,10)}
               >
                 NVD
               </button>
               <button
                 className="button-item"
-                onClick={() => handleImageChange(Peripa2, Peripa)}
+                onClick={() => handleImageChange(Peripa2, Peripa,9)}
               >
                 Peripapillary Atrophy
               </button>
               <button
                 className="button-item"
-                onClick={() => handleImageChange(NVE2, NVE)}
+                onClick={() => handleImageChange(NVE2, NVE,11)}
               >
                 NVE
               </button>
               <button
                 className="button-item"
-                onClick={() => handleImageChange(Tortous2, Tortous)}
+                onClick={() => handleImageChange(Tortous2, Tortous,14)}
               >
                 Tartous Vessels
               </button>
               <button
                 className="button-item"
-                onClick={() => handleImageChange(Myopic2, Myopia)}
+                onClick={() => handleImageChange(Myopic2, Myopia,12)}
               >
                 Myopic Degeneration
               </button>
@@ -167,49 +423,49 @@ const Content = () => {
             <div className="button-container">
               <button
                 className="button-item"
-                onClick={() => handleImageChange(NORMALOCT, NORMAL)}
+                onClick={() => handleImageChange(NORMALOCT, NORMAL,15)}
               >
                 Normal
               </button>
               <button
                 className="button-item"
-                onClick={() => handleImageChange(DRUSSENOCT, DRUSSEN)}
+                onClick={() => handleImageChange(DRUSSENOCT, DRUSSEN,16)}
               >
                 Drusen
               </button>
               <button
                 className="button-item"
-                onClick={() => handleImageChange(DMEOCT, DME22)}
+                onClick={() => handleImageChange(DMEOCT, DME22,17)}
               >
                 DME
               </button>
               <button
                 className="button-item"
-                onClick={() => handleImageChange(CNVOCT, CNV)}
+                onClick={() => handleImageChange(CNVOCT, CNV,18)}
               >
                 CNV
               </button>
               <button
                 className="button-item"
-                onClick={() => handleImageChange(AMDOCT, AMD)}
+                onClick={() => handleImageChange(AMDOCT, AMD,19)}
               >
                 AMD
               </button>
               <button
                 className="button-item"
-                onClick={() => handleImageChange(CSROCT, CSR)}
+                onClick={() => handleImageChange(CSROCT, CSR,20)}
               >
                 CSR
               </button>
               <button
                 className="button-item"
-                onClick={() => handleImageChange(DROCT, DR)}
+                onClick={() => handleImageChange(DROCT, DR,21)}
               >
                 DR
               </button>
               <button
                 className="button-item"
-                onClick={() => handleImageChange(MHOCT, MH)}
+                onClick={() => handleImageChange(MHOCT, MH,22)}
               >
                 MH
               </button>
@@ -235,11 +491,11 @@ const Content = () => {
               diagnosis. kindly correlate clinically
             </p>
           </div>
-          <div className="possible-diseases-container">
+           {/* <div className="possible-diseases-container">
             <h3 className="possible-disease-heading">Possible Diseases</h3>
             <div className="progress-bar-cont">
               <p className="disease-name">Disease report</p>
-              <ProgressBar name={"Glaucoma"} percent={glaucomaPercent} />
+              <ProgressBar name={"glaucoma"} percent={glaucomaPercent} />
             </div>
             <div className="progress-bar-cont">
               <p className="disease-name">DR Report</p>
@@ -256,7 +512,33 @@ const Content = () => {
                 <p style={{ fontSize: "14px" }}>Doctor Review Recommended</p>
               </div>
             </div>
-          </div>
+          </div>  */}
+             <div className="possible-diseases-container">
+      <h3 className="possible-disease-heading">Possible Diseases</h3>
+      {diseaseData.map((data, index) => (
+        <div key={index}>
+          {currentIndex === index && (
+            <div>
+              {Object.entries(data).map(([category, values], i) => (
+                <div key={i} className="progress-bar-cont">
+                  <p className="disease-name">{category}</p>
+                  {values.map((item, j) => (
+                    <ProgressBar key={j} name={item.name} percent={item.percent} />
+                  ))}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      ))}
+      <div className="doctor-recommend">
+        <div className="red-ball"></div>
+        <div>
+          <p style={{ fontSize: "14px" }}>Doctor Review Recommended</p>
+        </div>
+      </div>
+    </div>
+          
         </div>
       </div>
       <div className="upload-button-cont">
