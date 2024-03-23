@@ -2,6 +2,7 @@ import ProgressBar from "./progressBar.js";
 import './content.css'
 import glaucoma from "./assets/images/final-eye-samples/glaucoma.png"
 import glaucom from "./assets/images/final-heatmaps/Glaucoma.png"
+import ARMD from "./assets/images/final-heatmaps/ARMD.png"
 import dme from "./assets/images/final-eye-samples/DME.png"
 import DME from "./assets/images/final-heatmaps/DME.png"
 import DR1 from "./assets/images/final-heatmaps/DR1.png"
@@ -16,6 +17,30 @@ import NVE from "./assets/images/final-heatmaps/NVE.png"
 import Peripa from "./assets/images/final-heatmaps/PeripappilaryAtrophy.png"
 import SoftEx from "./assets/images/final-heatmaps/SoftExudates.png"
 import Tortous from "./assets/images/final-heatmaps/TortousVessels.png"
+import AMD from "./assets/images/final-oct-heatmaps/AMD.png";
+import CNV from "./assets/images/final-oct-heatmaps/CNV.png";
+import CSR from "./assets/images/final-oct-heatmaps/CSR.png";
+import DME2 from "./assets/images/final-oct-heatmaps/DME.png";
+import DR from "./assets/images/final-oct-heatmaps/DR.png";
+import DRUSSEN from "./assets/images/final-oct-heatmaps/DRUSEN.png";
+import MH from "./assets/images/final-oct-heatmaps/MH.png";
+import NORMAL from "./assets/images/final-oct-heatmaps/NORMAL.png";
+import ARMD2 from "./assets/images/final-eye-samples/ARMD.png"
+import DR11 from "./assets/images/final-eye-samples/DR1.png"
+import DR22 from "./assets/images/final-eye-samples/DR2.png"
+import DR33 from "./assets/images/final-eye-samples/DR3.png"
+import DR44 from "./assets/images/final-eye-samples/DR4.png"
+import Laser2 from "./assets/images/final-eye-samples/Laser.png"
+import Myopic2 from "./assets/images/final-eye-samples/MyopicDegenration.png"
+import Drusen2 from "./assets/images/final-eye-samples/Drusen.png"
+
+import NVD2 from "./assets/images/final-eye-samples/NVD.png"
+import NVE2 from "./assets/images/final-eye-samples/NVE.png"
+import Peripa2 from "./assets/images/final-eye-samples/PeripappilaryAtrophy.png"
+import Soft2 from "./assets/images/final-eye-samples/SoftExudates.png"
+import Tortous2 from "./assets/images/final-eye-samples/TortousVessels.png"
+
+
 import {useState} from 'react';
 
 const Content = () => {
@@ -23,9 +48,12 @@ const Content = () => {
   const drPercent = 100;
   const nodrPercent=99.3;
   const [image,setimage]=useState("");
+  const [image2,setimage2]=useState("");
 
-  const handleImageChange = (image) => {
+  const handleImageChange = (image,image2) => {
     setimage(image);
+    setimage2(image2);
+
   };
 
   return(
@@ -35,34 +63,34 @@ const Content = () => {
        <div className='fundus'>
         <p className="heading">Fundus</p>
         <div className='button-container'>
-          <button className='button-item' onClick={() => handleImageChange(glaucom)}>Glaucoma</button>
-          <button className='button-item' onClick={() => handleImageChange(glaucom)}>ARMD</button>
-          <button className='button-item'onClick={() => handleImageChange(DME)}>DME</button>
-          <button className='button-item' onClick={() => handleImageChange(DR1)}>DR1</button>
-          <button className='button-item'onClick={() => handleImageChange(DR2)}>DR2</button>
-          <button className='button-item'onClick={() => handleImageChange(DR3)}>DR3</button>
-          <button className='button-item'onClick={() => handleImageChange(DR4)}>DR4</button>
-          <button className='button-item'onClick={() => handleImageChange(Laser)}>Laser</button>
-          <button className='button-item'onClick={() => handleImageChange(Drusen)}>Drusen</button>
-          <button className='button-item'onClick={() => handleImageChange(SoftEx)}>Hard Exudates</button>
-          <button className='button-item'onClick={() => handleImageChange(NVD)}>NVD</button>
-          <button className='button-item'onClick={() => handleImageChange(Peripa)}>Peripapillary Atrophy</button>
-          <button className='button-item'onClick={() => handleImageChange(NVE)}>NVE</button>
-          <button className='button-item'onClick={() => handleImageChange(Tortous)}>Tartous Vessels</button>
-          <button className='button-item'onClick={() => handleImageChange(Myopia)}>Myopic Degeneration</button>
+          <button className='button-item' onClick={() => handleImageChange(glaucoma,glaucom)}>Glaucoma</button>
+          <button className='button-item' onClick={() => handleImageChange(ARMD2,ARMD)}>ARMD</button>
+          <button className='button-item'onClick={() => handleImageChange(DME2,DME)}>DME</button>
+          <button className='button-item' onClick={() => handleImageChange(DR11,DR1)}>DR1</button>
+          <button className='button-item'onClick={() => handleImageChange(DR22,DR2)}>DR2</button>
+          <button className='button-item'onClick={() => handleImageChange(DR33,DR3)}>DR3</button>
+          <button className='button-item'onClick={() => handleImageChange(DR44,DR4)}>DR4</button>
+          <button className='button-item'onClick={() => handleImageChange(Laser2,Laser)}>Laser</button>
+          <button className='button-item'onClick={() => handleImageChange(Drusen2,Drusen)}>Drusen</button>
+          <button className='button-item'onClick={() => handleImageChange(Soft2,SoftEx)}>Hard Exudates</button>
+          <button className='button-item'onClick={() => handleImageChange(NVD2,NVD)}>NVD</button>
+          <button className='button-item'onClick={() => handleImageChange(Peripa2,Peripa)}>Peripapillary Atrophy</button>
+          <button className='button-item'onClick={() => handleImageChange(NVE2,NVE)}>NVE</button>
+          <button className='button-item'onClick={() => handleImageChange(Tortous2,Tortous)}>Tartous Vessels</button>
+          <button className='button-item'onClick={() => handleImageChange(Myopic2,Myopia)}>Myopic Degeneration</button>
         </div>
        </div>
        <div className='oct'>
         <p className="heading">OCT</p>
         <div className='button-container'>
-          <button className='button-item'>Normal</button>
-          <button className='button-item'>Drusen</button>
-          <button className='button-item'>DME</button>
-          <button className='button-item'>CNV</button>
-          <button className='button-item'>AMD</button>
-          <button className='button-item'>CSR</button>
-          <button className='button-item'>DR</button>
-          <button className='button-item'>MH</button>
+          <button className='button-item'onClick={() => handleImageChange(AMD)}>Normal</button>
+          <button className='button-item'onClick={() => handleImageChange(CNV)}>Drusen</button>
+          <button className='button-item'onClick={() => handleImageChange(CSR)}>DME</button>
+          <button className='button-item'onClick={() => handleImageChange(DME)}>CNV</button>
+          <button className='button-item'onClick={() => handleImageChange(DR)}>AMD</button>
+          <button className='button-item'onClick={() => handleImageChange(DRUSSEN)}>CSR</button>
+          <button className='button-item'onClick={() => handleImageChange(MH)}>DR</button>
+          <button className='button-item'onClick={() => handleImageChange(NORMAL)}>MH</button>
         </div>
       </div>
      </div>    
@@ -71,12 +99,12 @@ const Content = () => {
           <div className='quadrant top-right'></div>
           <div className='quadrant bottom-left'></div>
           <div className='quadrant bottom-right'></div>
-          <img src={glaucoma} className='bulls-eye'alt="image1"/>
+          <img src={image} className='bulls-eye'alt="image1"/>
         </div>
       <div className='report'>
          <div className='generated-report'>
              <p className='heading'>Generated Report</p>
-             <img src={image} className='retina-img' alt='retina'/> 
+             <img src={image2} className='retina-img' alt='retina'/> 
              <p className='para'>This report is for screening purpose only. No<br/>way is this meant to replace doctor's<br/>diagnosis. kindly correlate clinically</p>
           </div> 
           <div className='possible-diseases-container'>
