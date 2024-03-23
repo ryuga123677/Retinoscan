@@ -3,7 +3,7 @@ import './content.css'
 import glaucoma from "./assets/images/final-eye-samples/glaucoma.png"
 import glaucom from "./assets/images/final-heatmaps/Glaucoma.png"
 import ARMD from "./assets/images/final-heatmaps/ARMD.png"
-import dme from "./assets/images/final-eye-samples/DME.png"
+import DME2 from "./assets/images/final-eye-samples/DME.png"
 import DME from "./assets/images/final-heatmaps/DME.png"
 import DR1 from "./assets/images/final-heatmaps/DR1.png"
 import DR2 from "./assets/images/final-heatmaps/DR2.png"
@@ -20,7 +20,7 @@ import Tortous from "./assets/images/final-heatmaps/TortousVessels.png"
 import AMD from "./assets/images/final-oct-heatmaps/AMD.png";
 import CNV from "./assets/images/final-oct-heatmaps/CNV.png";
 import CSR from "./assets/images/final-oct-heatmaps/CSR.png";
-import DME2 from "./assets/images/final-oct-heatmaps/DME.png";
+import DME22 from "./assets/images/final-oct-heatmaps/DME.png";
 import DR from "./assets/images/final-oct-heatmaps/DR.png";
 import DRUSSEN from "./assets/images/final-oct-heatmaps/DRUSEN.png";
 import MH from "./assets/images/final-oct-heatmaps/MH.png";
@@ -40,6 +40,15 @@ import Peripa2 from "./assets/images/final-eye-samples/PeripappilaryAtrophy.png"
 import Soft2 from "./assets/images/final-eye-samples/SoftExudates.png"
 import Tortous2 from "./assets/images/final-eye-samples/TortousVessels.png"
 
+import AMDOCT from "./assets/images/final-oct-samples/AMD.jpg";
+import CNVOCT from "./assets/images/final-oct-samples/CNV.jpeg";
+import CSROCT from "./assets/images/final-oct-samples/CSR.jpg";
+import DROCT from "./assets/images/final-oct-samples/DR.jpg";
+import DRUSSENOCT from "./assets/images/final-oct-samples/DRUSEN.jpeg";
+import MHOCT from "./assets/images/final-oct-samples/MH.jpg";
+import NORMALOCT from "./assets/images/final-oct-samples/NORMAL.jpeg";
+import DMEOCT from "./assets/images/final-oct-samples/DME.jpeg";
+
 
 import {useState} from 'react';
 
@@ -47,8 +56,8 @@ const Content = () => {
   const glaucomaPercent = 75.8;
   const drPercent = 100;
   const nodrPercent=99.3;
-  const [image,setimage]=useState("");
-  const [image2,setimage2]=useState("");
+  const [image,setimage]=useState(glaucoma);
+  const [image2,setimage2]=useState(glaucom);
 
   const handleImageChange = (image,image2) => {
     setimage(image);
@@ -83,14 +92,14 @@ const Content = () => {
        <div className='oct'>
         <p className="heading">OCT</p>
         <div className='button-container'>
-          <button className='button-item'onClick={() => handleImageChange(AMD)}>Normal</button>
-          <button className='button-item'onClick={() => handleImageChange(CNV)}>Drusen</button>
-          <button className='button-item'onClick={() => handleImageChange(CSR)}>DME</button>
-          <button className='button-item'onClick={() => handleImageChange(DME)}>CNV</button>
-          <button className='button-item'onClick={() => handleImageChange(DR)}>AMD</button>
-          <button className='button-item'onClick={() => handleImageChange(DRUSSEN)}>CSR</button>
-          <button className='button-item'onClick={() => handleImageChange(MH)}>DR</button>
-          <button className='button-item'onClick={() => handleImageChange(NORMAL)}>MH</button>
+          <button className='button-item'onClick={() => handleImageChange(NORMALOCT,NORMAL)}>Normal</button>
+          <button className='button-item'onClick={() => handleImageChange(DRUSSENOCT,DRUSSEN)}>Drusen</button>
+          <button className='button-item'onClick={() => handleImageChange(DMEOCT,DME22)}>DME</button>
+          <button className='button-item'onClick={() => handleImageChange(CNVOCT,CNV)}>CNV</button>
+          <button className='button-item'onClick={() => handleImageChange(AMDOCT,AMD)}>AMD</button>
+          <button className='button-item'onClick={() => handleImageChange(CSROCT,CSR)}>CSR</button>
+          <button className='button-item'onClick={() => handleImageChange(DROCT,DR)}>DR</button>
+          <button className='button-item'onClick={() => handleImageChange(MHOCT,MH)}>MH</button>
         </div>
       </div>
      </div>    
