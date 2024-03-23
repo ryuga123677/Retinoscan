@@ -62,7 +62,7 @@
      
      .navbar-links ul{
       width:100%;
-      flex-direction: column;
+      flex-direction:column;
      }
 
      .navbar-links li{

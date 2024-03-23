@@ -2,10 +2,11 @@ import './navbar2.css'
 import logo from './retinoscanImg.jpeg'
 
 const Navbar2 = () =>{
+ 
   return(
     <>
       <nav className='navbar2'>
-        <div className='navbar-links'>
+        <div className='navbar-links'  >
         <ul>
           <li><img className='retino-img' src={logo} alt="logo"/></li>
           <li><a href="#a" >Home</a></li>
